@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,19 +12,21 @@ int main()
     {
         cin >> arr[i];
     }
-    int first_element = arr[0];
-    int amazing = 0, least = 0, highest = 0;
+    int performance = arr[0];
+    // sort(arr, arr + n);
 
+    int more, less = performance;
+    int amazing = 0;
     for (int i = 1; i < n; i++)
     {
-        if (arr[i] < first_element)
+        if (arr[i] > more)
         {
-            least = arr[i];
-            amazing++;
+            more = arr[i];
+            amazing += 1;
         }
-        else if (arr[i] > first_element)
+        else if (arr[i] < less)
         {
-            highest = arr[i];
+            less = arr[i];
             amazing++;
         }
     }
