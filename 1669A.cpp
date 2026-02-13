@@ -1,31 +1,41 @@
 #include <iostream>
-
 using namespace std;
+#include <unordered_map>
 
-int main()
+void solve()
 {
-    int t = 0;
+    int t;
     cin >> t;
     while (t--)
     {
-        int rating = 0;
-        cin >> rating;
-        if (rating <= 1399)
+        int n;
+        cin >> n;
+        int arr[n];
+        for (int i = 0; i < n; i++)
         {
-            cout << "Division 4" << endl;
+            cin >> arr[i];
         }
-        else if (rating >= 1400 && rating <= 1599)
+        bool flag = true;
+        unordered_map<int, int> freq;
+
+        for (int i = 0; i < n; i++)
         {
-            cout << "Division 3" << endl;
+            freq[arr[i]]++;
+            if (freq[arr[i]] >= 3)
+            {
+                cout << arr[i] << endl;
+                flag = false;
+                break;
+            }
         }
-        else if (rating >= 1600 && rating <= 1899)
+        if (flag)
         {
-            cout << "Division 2" << endl;
-        }
-        else if (rating >= 1900)
-        {
-            cout << "Division 1" << endl;
+            cout << -1 << endl;
         }
     }
+}
+int main()
+{
+    solve();
     return 0;
 }
