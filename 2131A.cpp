@@ -1,40 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+void solve();
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    int t;
-    cin >> t;
-
-    while (t--)
+    int T = 1;
+    cin >> T;
+    while (T--)
     {
-        int n;
-        cin >> n;
-
-        vector<int> a(n), b(n);
-
-        for (int i = 0; i < n; i++)
-            cin >> a[i];
-
-        for (int i = 0; i < n; i++)
-            cin >> b[i];
-
-        long long pos = 0;
-
-        for (int i = 0; i < n; i++)
-        {
-            if (a[i] > b[i])
-                pos += (a[i] - b[i]);
-        }
-
-        if (pos == 0)
-            cout << 1 << endl;
-        else
-            cout << pos + 1 << endl;
+        solve();
     }
-
     return 0;
+}
+void solve()
+{
+    int N;
+    cin >> N;
+    vector<int> a(N), b(N);
+    for (int i = 0; i < N; i++)
+    {
+        cin >> a[i];
+    }
+    for (int i = 0; i < N; i++)
+    {
+        cin >> b[i];
+    }
+    int it = 0;
+    for (int i = 0; i < N; i++)
+    {
+        if (a[i] > b[i])
+        {
+            it += a[i] - b[i];
+        }
+    }
+    if (it == 0)
+    {
+        cout << 1 << endl;
+    }
+    else
+        cout << it + 1 << endl;
 }
